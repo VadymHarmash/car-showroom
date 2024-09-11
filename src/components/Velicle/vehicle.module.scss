@@ -1,0 +1,10 @@
+.vehicle{
+  border: 1px black solid;
+  cursor: pointer;
+  &__title{
+    font-size: 1.5em;
+  }
+  &__image{
+    height: 250px;
+  }
+}
