@@ -17,6 +17,7 @@ export default function Vehicle({ vehicle }) {
                     className={styles.vehicle__image}
                 />
             )}
+            <div className={styles.vehicle__hover}><p>Tap to read more...</p></div>
         </div>
     );
 }

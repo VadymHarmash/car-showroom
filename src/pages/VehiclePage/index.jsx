@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import styles from './vehiclePage.module.scss';
 
 export default function VehiclePage() {
     const { vehicle } = useParams();
@@ -17,16 +18,39 @@ export default function VehiclePage() {
 
     useEffect(() => {
         if (vehicle) fetchVehicle();
-    }, [vehicle])
+    }, [vehicle]);
 
     return (
-        <div className="vehiclepage">
+        <div className={styles.vehiclepage}>
             <div className="container">
-                <div className="vehiclepage__wrapper">
+                <div className={styles.vehiclepage__wrapper}>
+                    <a href='/' className={styles.vehiclepage__undo}>←</a>
                     {vehicleData ? (
                         <div>
                             <h2>{vehicleData.title}</h2>
-                            <img src={vehicleData.images[0]} alt={vehicleData.title} width="200" />
+                            <img
+                                src={vehicleData.images[0] || vehicleData.thumbnail}
+                                alt={vehicleData.title}
+                                width="300"
+                            />
+                            <p>{vehicleData.description}</p>
+                            <p><span>Price:</span> ${vehicleData.price}</p>
+                            <p><span>Rating:</span> {vehicleData.rating} / 5</p>
+                            <p><span>Stock:</span> {vehicleData.stock > 0 ? "Є в наявності" : "Немає в наявності"}</p>
+                            <p><span>Warranty:</span> {vehicleData.warrantyInformation}</p>
+
+                            {vehicleData.reviews && (
+                                <div>
+                                    <h3>Rewiews:</h3>
+                                    <ul>
+                                        {vehicleData.reviews.map((review, index) => (
+                                            <li key={index}>
+                                                <p><span>{review.reviewerName}</span> ({review.rating}/5): {review.comment}</p>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
                         </div>
                     ) : (
                         <p>Loading...</p>

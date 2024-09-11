@@ -1,10 +1,49 @@
-.vehicle{
-  border: 1px black solid;
+$sand-color: rgba(180, 142, 0, 0.7);
+
+.vehicle {
+  border: 5px black solid;
+  border-radius: 20px 0;
   cursor: pointer;
-  &__title{
-    font-size: 1.5em;
+  text-align: center;
+  position: relative;
+  width: 40%;
+  margin: 1rem;
+
+  &__title {
+    font-size: 1em;
   }
-  &__image{
-    height: 250px;
+
+  &__image {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 13px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $sand-color;
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    p {
+      font-size: 1.5em;
+    }
+  }
+
+}
+@media (max-width: 768px){
+  .vehicle{
+    width: 100%;
   }
 }

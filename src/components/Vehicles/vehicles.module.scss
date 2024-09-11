@@ -1,5 +1,46 @@
-.vehicles{
+.vehicles {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem;
+
+  // Адаптація для планшетів
+  @media (max-width: 768px) {
+    .vehicle {
+      width: 80%;  // Ширина для планшетів
+    }
+
+    .vehicle__title {
+      font-size: 1.2em;  // Зменшуємо розмір шрифту для заголовка
+    }
+
+    .vehicle__image {
+      height: 200px;  // Зменшена висота зображення для планшетів
+    }
+
+    .vehicle__hover p {
+      font-size: 1.2em;  // Текст стає меншим на планшетах
+    }
+  }
+
+  // Адаптація для мобільних пристроїв
+  @media (max-width: 480px) {
+    .vehicle {
+      width: 100%;  // Ширина для мобільних — 100%
+      margin: 0.5rem 0;  // Менші відступи
+    }
+
+    .vehicle__title {
+      font-size: 1em;  // Ще менший розмір шрифту
+    }
+
+    .vehicle__image {
+      height: 150px;  // Ще менша висота зображення
+    }
+
+    .vehicle__hover p {
+      font-size: 1em;  // Текст також менший
+    }
+  }
 }
