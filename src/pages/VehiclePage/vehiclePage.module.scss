@@ -14,6 +14,7 @@ $box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     left: 80px;
     transform: scale(3);
     cursor: pointer;
+    color: $accent-color;
     text-decoration: none;
   }
 
@@ -191,5 +192,10 @@ $box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         font-size: 0.9rem;
       }
     }
+  }
+
+  &__undo{
+    top: 10px;
+    left: 20px;
   }
 }
